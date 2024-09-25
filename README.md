@@ -46,7 +46,7 @@ pip install tensorflow_probability==0.18.0 transformers pyBigWig bio scikit-lear
 ```
 Tensorflow should be installed with GPU support. If you are using conda, you can install it with these [instructions](docs/install_tensorflow.md).
 
-Alternatively, you can install Tesorflow using pip:
+Alternatively, you can install Tensorflow using pip:
 ```shell
 pip install tensorflow-gpu==2.10.*
 ```
@@ -59,7 +59,7 @@ python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'
 
 ## Running Tiberius for Gene Prediction
 
-To run Tiberius with `bin/tiberius.py`, you need to provide a FASTA file containing the genomic sequences. The sequence can either include repeat softmasking (recommended) or be run without softmasking. See [softmasking_workflow](docs/softmasking_workflow.md) for recommandations on how to mask repeats for Tiberius. Currently, we only provide weights for mammalian species, they will be downloaded automatically.
+To run Tiberius with `bin/tiberius.py`, you need to provide a FASTA file containing the genomic sequences. The sequence can either include repeat softmasking (recommended) or be run without softmasking. See [softmasking_workflow](docs/softmasking_workflow.md) for recommendations on how to mask repeats for Tiberius. Currently, we only provide weights for mammalian species, they will be downloaded automatically.
 
 ### Running Tiberius with softmasked genome
 If you want to run Tiberius with softmasking, model weights will be downloaded from https://bioinf.uni-greifswald.de/bioinf/tiberius/models/tiberius_weights.tgz into `model_weights`.
@@ -111,7 +111,7 @@ Tiberius produces a GTF file containing the predicted gene structures. It can al
 If you want to write custom code for Tiberius gene prediction, see [example_prediction.ipynb](test_data/Panthera_pardus/example_prediction.ipynb) for an example on how to write a custom prediction script.
 
 ## Training Tiberius
-Currently, we provide only model weights for mammalian species. If you want to train Tiberius on your own data, you need at least a genomic seqeunce file (FASTA) and reference annotations (GTF) for each species. **Note that you can only train on genes with one transcript isoform per gene.** Please remove alternative splicing variants before training. There two ways to train Tiberius:
+Currently, we provide only model weights for mammalian species. If you want to train Tiberius on your own data, you need at least a genomic sequence file (FASTA) and reference annotations (GTF) for each species. **Note that you can only train on genes with one transcript isoform per gene.** Please remove alternative splicing variants before training. There two ways to train Tiberius:
 1. Training Tiberius with a large dataset that does not fit into memory. See [training_large_data.md](docs/training_large_data.md) for documentation on how to prepare a dataset and train Tiberius with it.
 2. Training Tiberius with a small dataset that fits into memory. See [example_train_full.ipynb](test_data/Panthera_pardus/example_train_full.ipynb) for an example on how to load data and train Tiberius on a single genome. This can easily be adapted to train Tiberius on several genomes by first loading the data for all genome and then training the model. See [training_large_data.md](docs/training_large_data-md) (Step 1) and [softmasking_workflow.md](docs/softmasking_workflow.md) for the preparation of the genome and annotation files.
 

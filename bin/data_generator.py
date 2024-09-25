@@ -1,7 +1,7 @@
 # ==============================================================
 # Authors: Lars Gabriel
 #
-# Class loading tfrecords so that they fit different traing 
+# Class loading tfrecords so that they fit different training 
 # scenarios
 # 
 # Transformers 4.31.0
@@ -24,7 +24,7 @@ class DataGenerator:
         output_size (int): Number of class labels in traings examples.
         trans (bool): Whether the data should fit the transformer only model.
         trans_lstm (bool): Whether the data should fit the transformer-LSTM hybrid model.
-        seq_weights (int): Weight of positons around exon borders. They aren't used if 0.
+        seq_weights (int): Weight of positions around exon borders. They aren't used if 0.
         softmasking (bool): Whether softmasking track should be added to input.
         clamsa (bool): Whether Clamsa track should be prepared as additional input,
         oracle (bool): Whether the input data should include the labels.

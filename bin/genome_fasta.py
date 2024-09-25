@@ -169,7 +169,7 @@ class GenomeSequences:
         return chunks_one_hot
 
 #     def get_flat_chunks_padding(self, strand='+'):
-#         """Get flattened chunks for all sequences. Padd all chunks to the same size.
+#         """Get flattened chunks for all sequences. Pad all chunks to the same size.
 #         Chunks at the end of the sequence are padded with the end of the previous chunk.
 #         Sequences smaller than the chunk size are padded with zeros.
 

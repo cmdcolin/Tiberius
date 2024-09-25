@@ -97,7 +97,7 @@ class SimpleGenePredHMMTransitioner(tf.keras.layers.Layer):
         Args:
             values: If not None, the values of the sparse tensor are set to this. Otherwise, the kernel is used.
         Returns:
-            A dictionary that maps transition types to probabilies. 
+            A dictionary that maps transition types to probabilities. 
         """
         if values is None:
             values = tf.reshape(self.transition_kernel, [-1])
@@ -131,7 +131,7 @@ class SimpleGenePredHMMTransitioner(tf.keras.layers.Layer):
         Returns:
                 Shape (k, b, q)
         """
-        #batch matmul of k inputs with k matricies
+        #batch matmul of k inputs with k matrices
         if self.reverse:
             return tf.matmul(inputs, self.A_transposed)
         else:
@@ -180,7 +180,7 @@ class SimpleGenePredHMMTransitioner(tf.keras.layers.Layer):
         # use roughly realistic initial length distributions
         init = []
         for edge in self.indices:
-            #edge = (model, from, to), ingore model for now
+            #edge = (model, from, to), ignore model for now
             if self.is_intergenic_loop(edge):  
                 p_loop = 1 - 1. / self.initial_ir_len
                 init.append(-np.log(1/p_loop-1))

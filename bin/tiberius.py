@@ -65,7 +65,7 @@ def group_sequences(seq_names, seq_lens, t=50000400, chunk_size=500004):
         groups.append(current_group)    
     return groups
 
-def download_weigths(url, file_path):
+def download_weights(url, file_path):
     with requests.get(url, stream=True) as r:
         r.raise_for_status()
         with open(file_path, 'wb') as f:
@@ -138,19 +138,19 @@ def main():
                 logging.error(f'ERROR: Clamsa input requires softmasking.')
                 sys.exit(1)
             logging.info(f'Weights for Tiberius de novo model will be downloaded from {url_weights["Tiberius_denovo"]}')
-            download_weigths(url_weights["Tiberius_denovo"], f'{model_weights_dir}/tiberius_denovo_weights.tgz')
+            download_weights(url_weights["Tiberius_denovo"], f'{model_weights_dir}/tiberius_denovo_weights.tgz')
             logging.info(f'Extracting weights to {model_weights_dir}')
             extract_tar_gz(f'{model_weights_dir}/tiberius_denovo_weights.tgz', f'{model_weights_dir}')
             model_path = f'{model_weights_dir}/tiberius_denovo_weights'
         elif not softmasking:
             logging.info(f'Weights for Tiberius model without softmasking will be downloaded from {url_weights["Tiberius_nosm"]}')
-            download_weigths(url_weights["Tiberius_nosm"], f'{model_weights_dir}/tiberius_nosm_weights.tgz')
+            download_weights(url_weights["Tiberius_nosm"], f'{model_weights_dir}/tiberius_nosm_weights.tgz')
             logging.info(f'Extracting weights to {model_weights_dir}')
             extract_tar_gz(f'{model_weights_dir}/tiberius_nosm_weights.tgz', f'{model_weights_dir}')
             model_path_lstm = f'{model_weights_dir}/tiberius_nosm_weights'
         else:
             logging.info(f'Weights for Tiberius model will be downloaded from {url_weights["Tiberius_default"]}')
-            download_weigths(url_weights["Tiberius_default"], f'{model_weights_dir}/tiberius_weights.tgz')
+            download_weights(url_weights["Tiberius_default"], f'{model_weights_dir}/tiberius_weights.tgz')
             logging.info(f'Extracting weights to {model_weights_dir}')
             extract_tar_gz(f'{model_weights_dir}/tiberius_weights.tgz', f'{model_weights_dir}')
             model_path = f'{model_weights_dir}/tiberius_weights'
@@ -187,7 +187,7 @@ def main():
                                     t=50000400, chunk_size=seq_len)
         
         for k, seq in enumerate(seq_groups):
-            logging.info(f'Tiberius gene prediciton {k+1+len(seq_groups)*j}/{len(strand)*len(seq_groups)} ')    
+            logging.info(f'Tiberius gene prediction {k+1+len(seq_groups)*j}/{len(strand)*len(seq_groups)} ')    
             x_data, coords = pred_gtf.load_genome_data(genome_fasta, seq,
                                                        softmask=softmasking, strand=s_)
             print(x_data.shape)
@@ -295,9 +295,9 @@ def parseCmd():
     parser.add_argument('--clamsa', type=str, default='',
         help='')
     parser.add_argument('--codingseq', type=str, default='',
-        help='Ouputs the coding sequences of all predicted genes as a FASTA file.')
+        help='Outputs the coding sequences of all predicted genes as a FASTA file.')
     parser.add_argument('--protseq', type=str, default='',
-        help='Ouputs the amino acid sequences of all predicted genes as a FASTA file.')
+        help='Outputs the amino acid sequences of all predicted genes as a FASTA file.')
     # parser.add_argument('--temp_dir', type=str, default='',
     #     help='')
     parser.add_argument('--emb', action='store_true',

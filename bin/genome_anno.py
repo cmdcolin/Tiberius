@@ -415,7 +415,7 @@ class Anno:
     def find_genes(self):
         """
             Find all genes in the annotation and find the transcripts that
-            belong to each gene. Also, cretae a dict with the gtf lines for each gene.
+            belong to each gene. Also, create a dict with the gtf lines for each gene.
         """
         self.gene_gtf = {}
         self.genes = {}
@@ -439,7 +439,7 @@ class Anno:
 
     def get_gtf(self):
         """
-            Get annotaion file as gtf list.
+            Get annotation file as gtf list.
             Returns:
                 list(list(str)): Gtf file as list of lists
         """
@@ -466,7 +466,7 @@ class Anno:
 
     def get_subset(self, tx_list):
         """
-            Get annotaion file for a subset of transcripts.
+            Get annotation file for a subset of transcripts.
             Args:
                 tx_list (list(str)): List of transcript IDs
             Returns:

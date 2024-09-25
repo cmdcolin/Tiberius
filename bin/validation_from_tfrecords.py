@@ -2,7 +2,7 @@
 # Authors: Lars Gabriel
 #
 # Get validation data from tfrecords files. 
-# Creates a numpy array from sampels from tfrecords files.
+# Creates a numpy array from samples from tfrecords files.
 # ==============================================================
 
 import os, sys, json, argparse
@@ -66,7 +66,7 @@ def parseCmd():
     parser = argparse.ArgumentParser(
         
         description="""Get validation data from tfrecords files. 
-        Creates a numpy array from sampels from tfrecords files.
+        Creates a numpy array from samples from tfrecords files.
         The tfrecord files have to be named like <species>_<number>.tfrecords .
     """)
     parser.add_argument('--tfrec_dir', type=str,

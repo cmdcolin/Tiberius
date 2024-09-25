@@ -44,7 +44,7 @@ class GenePredHMMLayer(MsaHmmLayer):
         share_intron_parameters: Whether to share the emission parameters of the intron states. This does currently not affect transitions.
         simple: Whether to use a simple HMM with only 3 states (IR, I, E) instead of the full 7 state HMM (use only for backwards compatibility).
         disable_metrics: Disabled additional metrics added during training.
-        parallel_factor: The number of chunks the input is split into to process them in parallel. Must devide the length of the input.
+        parallel_factor: The number of chunks the input is split into to process them in parallel. Must divide the length of the input.
                         Increases speed and GPU utilization but also memory usage.
     """
     def __init__(self, 
@@ -194,7 +194,7 @@ class GenePredHMMLayer(MsaHmmLayer):
                 State posterior log-probabilities (without loglik if use_loglik is False). The order of the states is Ir, I0, I1, I2, E0, E1, E2.
                 Shape (batch, len, 7 (number_of_states))
         """ 
-        #batch matmul of k inputs with k matricies
+        #batch matmul of k inputs with k matrices
         if end_hints is not None:
             end_hints = tf.expand_dims(end_hints, 0)
         if self.simple:

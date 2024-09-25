@@ -138,5 +138,5 @@ python3 bin/train.py --hmm --out ~/deepfinder/exclude_primates/weights/train \
 ### Gene structure prediction
 > relevant code: `bin/eval_model_class.py`, `test_data/test_vit.py`, 
 
-Full gene structures from a genome can be predicted using the `PredictionGTF` class from `bin/eval_model_class.py`. Fully automated prediction and evaluation of a model can be done using the `test_data/test_vit.py` script (see its documetation for usage information). A detailed example for gene structure prediction with a model can be found at `test_data/Panthera_pardus/example_prediction.ipynb`.
+Full gene structures from a genome can be predicted using the `PredictionGTF` class from `bin/eval_model_class.py`. Fully automated prediction and evaluation of a model can be done using the `test_data/test_vit.py` script (see its documentation for usage information). A detailed example for gene structure prediction with a model can be found at `test_data/Panthera_pardus/example_prediction.ipynb`.
 
