@@ -1,10 +1,10 @@
 ### Recommended Workflow for Training Tiberius with a Large Dataset
 
-For trainign Tiberius with a large dataset we recommend generating tfRecords files. This will allow you to train on a large dataset without having to load the entire dataset into memory. The following steps will guide you through the process of generating tfrecords files from the data of several genomes. For each genome, you need a FASTA file with the genomic sequences (ideally softmasked) and a GTF file with the gene annotations.
+For training Tiberius with a large dataset we recommend generating tfRecords files. This will allow you to train on a large dataset without having to load the entire dataset into memory. The following steps will guide you through the process of generating tfrecords files from the data of several genomes. For each genome, you need a FASTA file with the genomic sequences (ideally softmasked) and a GTF file with the gene annotations.
 
 For following instructions, we will assume that the files are named after the species as `${SPECIES}.fa` and `${SPECIES}.gtf`. And that [learnMSA](https://github.com/Gaius-Augustus/learnMSA) is installed at `$leanMSA`:
 
-1. Remove alternative transcripts from each GTF file. This is necessary because Tiberius does not support alternative splicing. A common way to do this would be to choose the alternative with the longest codeing sequence, you can use for example [`get_longest_isoform.py`](https://github.com/Gaius-Augustus/TSEBRA/blob/main/bin/get_longest_isoform.py) for this:
+1. Remove alternative transcripts from each GTF file. This is necessary because Tiberius does not support alternative splicing. A common way to do this would be to choose the alternative with the longest coding sequence, you can use for example [`get_longest_isoform.py`](https://github.com/Gaius-Augustus/TSEBRA/blob/main/bin/get_longest_isoform.py) for this:
 
     ```shell
     python bin/get_longest_isoform.py --gtf ${SPECIES}.gtf --out ${SPECIES}.longest.gtf
@@ -32,7 +32,7 @@ For following instructions, we will assume that the files are named after the sp
     Enhydra_lutris
     ```
 
-4. Create a config file that contains the parameters for training, a config file with default parameter is located at `docs/config.json`. You can find descriptions of key parametes in `bin/train.py`. Start training:
+4. Create a config file that contains the parameters for training, a config file with default parameter is located at `docs/config.json`. You can find descriptions of key parameters in `bin/train.py`. Start training:
     
     ```shell
     python bin/train.py --config config.json --data $tfrecords/ --learnMSA $leanMSA  --cfg $cfg

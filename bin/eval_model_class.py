@@ -220,7 +220,7 @@ class PredictionGTF:
                                   output_hidden_states=True)
         trans_out = trans_out['hidden_states'][-1][:,1:]   
         trans_out = lstm_load.get_layer('dense_transformer')(trans_out) 
-        # ouput size: batch_size, 918, 600
+        # output size: batch_size, 918, 600
         model = Model(inputs=[input_ids, attention_mask], outputs=trans_out)
         return model
 

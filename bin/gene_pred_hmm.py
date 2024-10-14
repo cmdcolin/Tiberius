@@ -194,7 +194,7 @@ class GenePredHMMLayer(MsaHmmLayer):
                 State posterior log-probabilities (without loglik if use_loglik is False). The order of the states is Ir, I0, I1, I2, E0, E1, E2.
                 Shape (batch, len, 7 (number_of_states))
         """ 
-        #batch matmul of k inputs with k matricies
+        #batch matmul of k inputs with k matrices
         if end_hints is not None:
             end_hints = tf.expand_dims(end_hints, 0)
         if self.simple:

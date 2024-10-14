@@ -1,7 +1,7 @@
 # ==============================================================
 # Authors: Lars Gabriel
 #
-# Class loading tfrecords so that they fit different traing 
+# Class loading tfrecords so that they fit different training 
 # scenarios
 # 
 # Transformers 4.31.0
