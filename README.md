@@ -110,7 +110,9 @@ python bin/tiberius.py --genome input.fasta --out output.gtf --model_lstm path/t
 ### Running Tiberius on Different GPUs
 
 Tiberius can run on any GPU with at least 8GB of memory. However, you will need to adjust the batch size to match the memory capacity of your GPU using the `--batch_size` argument. Below is a list of recommended batch sizes for different GPUs:
-Here is a list of GPUs to batch siezes:
+
+Here is a list of GPUs to batch sizes:
+
 - **A100 (80GB):** batch size of 16
 - **RTX 3090 (25GB):** batch size of 8
 - **RTX 2070 (8GB):** batch size of 2
