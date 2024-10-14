@@ -13,22 +13,18 @@ Currently, we provide only model weights for mammalian species and Tiberius does
 :warning: **We will be migrating Tiberius from TensorFlow 2.10 to TensorFlow 2.17 during the week of October 7–12., which will make the installation of a compatible TensorFlow version easier.**
 
 ## Installation
-### Git Repositories
 
-Clone the repository, including learnMSA as submodule:
-```
-git clone --recursive https://github.com/Gaius-Augustus/Tiberius
-```
-In case you cloned the repository without the submodule, you can load the submodule with:
-```
-git submodule update --init --recursive
-```
+### learnMSA submodule
+
 Alternatively, you can clone the learnMSA repository separately:
+
+
 ```shell
 git clone https://github.com/Gaius-Augustus/learnMSA
 cd learnMSA
 git checkout parallel
 ```
+
 Ensure that learnMSA was loaded and that is on the branch `parallel`.
 
 ### Python Libraries
